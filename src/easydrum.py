@@ -40,44 +40,63 @@ splash = oalOpen("splash.wav")
 while True:
     time.sleep(0.02)
 
+    #Identificação da caixa
     if keyboard.is_pressed('v'):
         t = threading.Thread(target=playCaixa)
         t.start()
         time.sleep(0.02)
-        
+        t._stop()
+    
+    #Identificação da caixa
     if keyboard.is_pressed('m'):
         b = threading.Thread(target=playBumbo)
         b.start()
         time.sleep(0.02)
+        b._stop()
 
-    if keyboard.is_pressed('n'):
+    if keyboard.is_pressed('n') and keyboard.is_pressed('b'):
         hh = threading.Thread(target=playHhClose)
         hh.start()
         time.sleep(0.02)
+        hh._stop()
 
-    if keyboard.is_pressed('b'):
+    if keyboard.is_pressed('n') and not(keyboard.is_pressed('b')):
         hh = threading.Thread(target=playHhOpen)
         hh.start()
         time.sleep(0.02)
+        hh._stop()
+
+    # if keyboard.is_pressed('b'):
+    #     hh = threading.Thread(target=playHhOpen)
+    #     hh.start()
+    #     time.sleep(0.02)
 
     if keyboard.is_pressed('f'):
         hh = threading.Thread(target=playTomOne)
         hh.start()
         time.sleep(0.02)
+        hh._stop()
 
     if keyboard.is_pressed('g'):
         hh = threading.Thread(target=playTomTwo)
         hh.start()
         time.sleep(0.02)
+        hh._stop()
 
     if keyboard.is_pressed('h'):
         hh = threading.Thread(target=playTomThree)
         hh.start()
         time.sleep(0.02)
+        hh._stop()
 
     if keyboard.is_pressed('j'):
         s = threading.Thread(target=playSplash)
         s.start()
         time.sleep(0.02)
+        s._stop()
 
-oalQuit()
+    if keyboard.is_pressed('esc'):
+        oalQuit()
+        break
+
+# oalQuit()
